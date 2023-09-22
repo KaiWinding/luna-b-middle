@@ -14,7 +14,7 @@ const getImageServiceId = () => {
       .padStart(5, "0");
     // 组合订单编号
     imageServiceId = `${timestamp}-${randomNum}`;
-  } while (!mjRequestMap[imageServiceId]);
+  } while (mjRequestMap[imageServiceId]);
 
   return imageServiceId;
 };
@@ -44,12 +44,12 @@ const imageService = {
         (uri) => {
           console.log("loading123---", uri);
 
-          mjRequestMap[imageServiceId].url = url;
+          mjRequestMap[imageServiceId].uri = uri;
         }
       )
       .then(function (msg) {
         console.log("msg123", msg);
-        mjRequestMap[imageServiceId].url = msg.uri;
+        mjRequestMap[imageServiceId].uri = msg.uri;
         mjRequestMap[imageServiceId].status = 1;
       });
     // 实现生成图片的业务逻辑
