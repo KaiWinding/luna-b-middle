@@ -6,6 +6,7 @@ const mjRequestMap = {};
 const getImageServiceId = () => {
   let imageServiceId;
   do {
+    const date = new Date();
     const timestamp = date.getTime();
     // 生成随机数
     const randomNum = Math.floor(Math.random() * 100000)
