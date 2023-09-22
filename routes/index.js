@@ -25,4 +25,7 @@ router.get("/json", async (ctx, next) => {
 
 router.post("/generate", imageController.generateImage);
 
+
+router.post("/polling", imageController.pollingImage);
+
 module.exports = router;

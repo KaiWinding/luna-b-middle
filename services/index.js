@@ -62,5 +62,4 @@ const imageService = {
 
 module.exports = {
   imageService,
-  pollingImage,
 };
