@@ -39,8 +39,7 @@ const imageService = {
     console.log("connect end");
 
     client
-      .Imagine(
-        "asian princess in wes anderson style, dressed in local uniform in Azure Lagoon, epic shot , --ar 16:9 --no glasses --stylize 400 --q .5 --v 5.2",
+      .Imagine(description,
         (uri) => {
           console.log("loading123---", uri);
 
