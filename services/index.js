@@ -50,6 +50,8 @@ const imageService = {
         console.log("msg123", msg);
         mjRequestMap[imageServiceId].uri = msg.uri;
         mjRequestMap[imageServiceId].status = 1;
+      }).catch(err => {
+        console.log('gen err !', err);
       });
     // 实现生成图片的业务逻辑
     // 返回生成的图片 URL 或数据
