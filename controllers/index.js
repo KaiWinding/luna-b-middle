@@ -18,7 +18,6 @@ const imageController = {
     console.log("hello world");
     console.log("description = ", id);
     const taskResult = await imageService.pollingImage(id);
-    console.log('res = ', res);
     ctx.body = {
         code: 1,
         data: taskResult
