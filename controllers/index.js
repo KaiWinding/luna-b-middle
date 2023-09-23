@@ -6,15 +6,23 @@ const imageController = {
     console.log("hello world");
     console.log("description = ", description);
     const res = await imageService.generateImage(description);
-    ctx.body = { id: res };
+    ctx.body = {
+        code: 1,
+        data: {
+            taskId: res
+        }
+    };
   },
   async pollingImage(ctx) {
     const id = ctx.request.body.id;
     console.log("hello world");
     console.log("description = ", description);
-    const res = await imageService.pollingImage(id);
+    const taskResult = await imageService.pollingImage(id);
     console.log('res = ', res);
-    ctx.body = res;
+    ctx.body = {
+        code: 1,
+        data: taskResult
+    };
   },
 };
 
