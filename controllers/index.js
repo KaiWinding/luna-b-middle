@@ -3,11 +3,11 @@ const { imageService } = require("../services/index");
 const imageController = {
   async generateImage(ctx) {
     const description = ctx.request.body.description;
-    const Jwtheader = ctx.request.headers["Jwtheader"];
+    const jwtheader = ctx.request.headers["jwtheader"];
 
-    console.log('Jwtheader = ', Jwtheader);
+    console.log('jwtheader = ', jwtheader);
     console.log('ctx.request.headers = ', ctx.request.headers);
-    if (!Jwtheader) {
+    if (!jwtheader) {
       ctx.body = {
         status: 4002,
       };
