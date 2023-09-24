@@ -4,10 +4,12 @@ const imageController = {
   async generateImage(ctx) {
     const description = ctx.request.body.description;
     const Jwtheader = ctx.request.headers["Jwtheader"];
+
+    console.log('Jwtheader = ', Jwtheader);
+    console.log('ctx.request.headers = ', ctx.request.headers);
     if (!Jwtheader) {
-      ctx.status = 4002;
       ctx.body = {
-        code: -1,
+        status: 4002,
       };
       return;
     }
