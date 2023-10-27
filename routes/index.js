@@ -1,5 +1,6 @@
 const router = require("koa-router")();
 const { imageController } = require("../controllers/index");
+const { authenticationMiddleware } = require('../middleware/index');
 
 router.get("/", async (ctx, next) => {
   await ctx.render("index", {
@@ -23,9 +24,10 @@ router.get("/json", async (ctx, next) => {
   };
 });
 
-router.post("/generate", imageController.generateImage);
-
-
 router.post("/polling", imageController.pollingImage);
+
+router.use(authenticationMiddleware());
+
+router.post("/generate", imageController.generateImage);
 
 module.exports = router;
