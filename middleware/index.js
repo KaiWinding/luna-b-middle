@@ -36,8 +36,6 @@ function authenticationMiddleware() {
         console.log('code 1= 1 !!!');
         throw new Error(resData.message);
       }
-
-      await next();
     } catch (error) {
         console.log('err = ', error);
       ctx.status = 401;
@@ -46,6 +44,7 @@ function authenticationMiddleware() {
         msg: "Failed to authenticate token",
       };
     }
+    await next();
   };
 }
 
