@@ -1,6 +1,6 @@
 function authenticationMiddleware() {
   return async (ctx, next) => {
-    const token = ctx.header.jwtheader;
+    const token = ctx.request.headers["jwtheader"];
 
     if (!token) {
       ctx.status = 401;
@@ -10,6 +10,8 @@ function authenticationMiddleware() {
       };
       return;
     }
+
+    console.log('token = ', token);
 
     try {
       const response = await fetch(
@@ -27,6 +29,8 @@ function authenticationMiddleware() {
       }
 
       const resData = await response.json();
+
+      console.log('resData = ', resData);
 
       if (resData.code != 1) {
         throw new Error(resData.message);

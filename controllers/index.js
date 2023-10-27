@@ -7,12 +7,6 @@ const imageController = {
 
     console.log('jwtheader = ', jwtheader);
     console.log('ctx.request.headers = ', ctx.request.headers);
-    if (!jwtheader) {
-      ctx.body = {
-        status: 4002,
-      };
-      return;
-    }
     console.log("hello world");
     console.log("description = ", description);
     const res = await imageService.generateImage(description);
