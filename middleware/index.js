@@ -33,11 +33,13 @@ function authenticationMiddleware() {
       console.log('resData = ', resData);
 
       if (resData.code != 1) {
+        console.log('code 1= 1 !!!');
         throw new Error(resData.message);
       }
 
       await next();
     } catch (error) {
+        console.log('err = ', error);
       ctx.status = 401;
       ctx.body = {
         code: 401,
